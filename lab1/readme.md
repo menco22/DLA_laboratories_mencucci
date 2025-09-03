@@ -39,8 +39,11 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 ### Transfer Learning Backbone
 - Pre-trained deep residual CNN on CIFAR-10.  
 - Used as frozen feature extractor (linear probe) or progressively fine-tuned on CIFAR-100.
+| Colonna 1 | Colonna 2 | Colonna 3 |
+|-----------|-----------|-----------|
+| Riga 1    | Valore A  | Valore B  |
+| Riga 2    | Valore C  | Valore D  |
 
----
 
 ## Training Pipeline
 - **Optimizer**: Adam (default),Adam/AdamW/Sgd/Sgd+momentum.  
@@ -71,10 +74,7 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 
 ## Results & Discussion
 - **Residual connections in MLP** mitigate vanishing gradients, both in MLPs and CNNs.
-  | Intestazione 1 | Intestazione 2 | Intestazione 3 |
-|----------------|----------------|----------------|
-| Cella 1        | Cella 2        | Cella 3        |
-| Riga 2         | Dati           | Altri dati     |
+    
   
 - **Residual CNNs** clearly outperform plain CNNs in convergence speed and final accuracy.  
 - **Transfer learning** shows that the model is able to 
