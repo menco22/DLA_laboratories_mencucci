@@ -70,7 +70,8 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 The deeper the mlp, the more you see the difference.
 
 - **Residual CNNs** clearly outperform plain CNNs in convergence speed and final accuracy:
-<img width="666" height="497" alt="image" src="https://github.com/user-attachments/assets/4aff88e6-d1f1-4f7c-887e-4fad4f815ef3" />
+<img width="591" height="489" alt="image" src="https://github.com/user-attachments/assets/02386037-ddd3-4a9c-8379-2f8720d11336" />
+
 
 
     
