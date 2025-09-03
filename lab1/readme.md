@@ -84,8 +84,7 @@ As seen before, the deepest the net get, the more the residual connection makes 
 <img width="3033" height="1593" alt="W B Chart 03_09_2025, 19_07_04" src="https://github.com/user-attachments/assets/ba862ff2-1fe2-4d3b-bca2-43c6284d63b5" />
 <img width="3033" height="1593" alt="W B Chart 03_09_2025, 19_07_32" src="https://github.com/user-attachments/assets/f47346c0-ae6d-45a2-915d-6edfe1b49a7f" />
 
-
--**Feature Extractor Baseline** I extracted features from the last convolutional layer (before the fully-connected layer) of the pre-trained model on CIFAR-10.
+- **Feature Extractor Baseline** I extracted features from the last convolutional layer (before the fully-connected layer) of the pre-trained model on CIFAR-10.
 These features were used to train a linear classifier (Linear SVM) on CIFAR-100 to establish a baseline performance. The accuracy obtained with this approach was **41.97%**.
 
 - **Transfer learning** The model performed quite well after pre-training on cifar-10, considering the difficulty of the task on cifar-100.I experimented with different optimizer setups to see which one was best.
