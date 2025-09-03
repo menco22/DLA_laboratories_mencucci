@@ -27,7 +27,6 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 
 ## Architectures
 ### MLP (Baseline on MNIST)
-- Class: `oldMLP` — stack of fully-connected layers with ReLU activations.  
 - Experiment: depth vs gradient flow, with/without residual shortcut connections.
 
 ### CNNs on CIFAR-10
