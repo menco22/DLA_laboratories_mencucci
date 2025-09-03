@@ -3,7 +3,7 @@
 **Residual Connections and Transfer Learning**
 
 ## Abstract
-This lab investigates the role of **residual connections** in mitigating vanishing gradients in deep neural networks, both in **MLPs** and **CNNs**, and explores **transfer learning and fine-tuning** for image classification. Starting from a simple MLP on MNIST, we progressively design and analyze convolutional architectures on CIFAR-10, with and without residual blocks. Finally, we transfer a pre-trained residual CNN to CIFAR-100, comparing *linear probing* and different fine-tuning strategies. All experiments are tracked using **Weights & Biases (wandb)** for and monitoring.
+This lab investigates the role of **residual connections** in mitigating vanishing gradients in deep neural networks, both in **MLPs** and **CNNs**, and explores **transfer learning and fine-tuning** for image classification. Starting from a simple MLP on MNIST, we progressively design and analyze convolutional architectures on CIFAR-10, with and without residual blocks. Finally, we transfer a pre-trained residual CNN to CIFAR-100, comparing *linear probing* and different fine-tuning strategies. All experiments are tracked using **Weights & Biases (wandb)** for monitoring.
 
 ---
 
