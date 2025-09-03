@@ -43,10 +43,10 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 ---
 
 ## Training Pipeline
-- **Optimizer**: Adam (default), optionally AdamW/SGD.  
+- **Optimizer**: Adam (default),Adam/AdamW/Sgd/Sgd+momentum.  
 - **Scheduler**: ReduceLROnPlateau (factor=0.5, patience=2).  
 - **Regularization**: early stopping (patience=5–6).  
-- **Logging**: wandb (loss, accuracy, gradient flow, checkpoints).  
+- **Logging**: local + wandb (loss, accuracy, gradient flow, checkpoints).  
 - **Gradient analysis**: custom functions to plot weight/bias gradient norms across layers, highlighting vanishing/exploding gradients.
 
 ---
@@ -57,8 +57,7 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 - Observation: plain MLPs show gradient attenuation; residual connections stabilize training and improve accuracy.
 
 ### 2. Residual Connections in CNN
-- CIFAR-10 experiments with plain vs residual CNNs.  
-- Gradient norm plots reveal stronger propagation in residual networks.  
+- CIFAR-10 experiments with plain vs residual CNNs.   
 - Residual CNNs achieve higher test accuracy and faster convergence.
 
 ### 3. Transfer Learning & Fine-tuning on CIFAR-100 (Exercise 2)
@@ -71,8 +70,11 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 ---
 
 ## Results & Discussion
-- **Residual connections** mitigate vanishing gradients, both in MLPs and CNNs.  
+- **Residual connections in MLP** mitigate vanishing gradients, both in MLPs and CNNs.
+  | Intestazione 1 | Intestazione 2 | Intestazione 3 |
+|----------------|----------------|----------------|
+| Cella 1        | Cella 2        | Cella 3        |
+| Riga 2         | Dati           | Altri dati     |
+  
 - **Residual CNNs** clearly outperform plain CNNs in convergence speed and final accuracy.  
-- **Transfer learning** shows the benefit of reusing CIFAR-10 features for CIFAR-100:
-  - Linear probing already provides strong performance.  
-  - Fine-tuning progressively adapts the backbone to the new dataset, with notable gains.  
+- **Transfer learning** shows that the model is able to 
