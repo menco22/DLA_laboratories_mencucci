@@ -74,6 +74,7 @@ The deeper the mlp, the more you see the difference.
 
 - **Residual CNNs** clearly outperform plain CNNs in convergence speed and final accuracy:
 <img width="591" height="489" alt="image" src="https://github.com/user-attachments/assets/02386037-ddd3-4a9c-8379-2f8720d11336" />
+
 As seen before, the deepest the net get, the more the residual connection makes the difference, although in this case we have more of a phenomenon of gradient degradation rather than disappearance.
 <img width="2843" height="1493" alt="W B Chart 03_09_2025, 18_56_18" src="https://github.com/user-attachments/assets/69b25d27-08e3-4329-bba9-ad061453251d" />
 <img width="2843" height="1493" alt="W B Chart 03_09_2025, 18_56_50" src="https://github.com/user-attachments/assets/df5169a3-ac8c-45df-b4cc-11068ce1904b" />
