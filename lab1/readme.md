@@ -32,7 +32,7 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 - Experiment: depth vs gradient flow, with/without residual shortcut connections.
 
 ### CNNs on CIFAR-10
-- **Plain CNN**: sequential ConvBlocks (Conv3×3 + BN + ReLU).  
+- **Non Residual CNN**: sequential ConvBlocks (Conv3×3 + BN + ReLU).  
 - **Residual CNN**: ResidualBlock with identity/projection skip connections (1×1 conv for downsampling).  
 - Architecture: Input layer → Residual Blocks (with downsampling at increasing depths) → Global average pooling → Fully connected classifier.
 
