@@ -39,6 +39,7 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 ### Transfer Learning Backbone
 - Pre-trained deep residual CNN on CIFAR-10.  
 - Used as frozen feature extractor (linear probe) or progressively fine-tuned on CIFAR-100.
+
 | Colonna 1 | Colonna 2 | Colonna 3 |
 |-----------|-----------|-----------|
 | Riga 1    | Valore A  | Valore B  |
