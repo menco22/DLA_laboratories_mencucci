@@ -13,7 +13,6 @@ This lab investigates the role of **residual connections** in mitigating vanishi
 - Apply **transfer learning** from CIFAR-10 to CIFAR-100:
   - Linear probe (frozen backbone).  
   - Fine-tuning strategies (partial vs full).  
-- Compare performance across architectures and training strategies.  
 
 ---
 
