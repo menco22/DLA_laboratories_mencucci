@@ -52,28 +52,26 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 
 ## Experiments
 ### 1. Residual Connections in MLP
-- Training deep MLPs on MNIST.  
-- Observation: plain MLPs show gradient attenuation; residual connections stabilize training and improve accuracy.
+- Training deep MLPs on MNIST and verification of the effect of the residual connections.
 
 ### 2. Residual Connections in CNN
-- CIFAR-10 experiments with plain vs residual CNNs.   
-- Residual CNNs achieve higher test accuracy and faster convergence.
+- CIFAR-10 experiments with non-residual vs residual CNNs.   
 
 ### 3. Transfer Learning & Fine-tuning on CIFAR-100 (Exercise 2)
-- **Linear probe (LP)**: freeze backbone, train only final classifier.  
-  - Expected test accuracy ≈ 35–45%.  
-- **Fine-tuning (FT0, FT1, FT2)**: progressively unfreeze layers.  
-  - Full fine-tuning boosts accuracy to ≈ 45–60%, depending on learning rate and augmentation.  
 - **Feature extractor + Linear SVM**: additional baseline using pre-trained embeddings.  
-
+- **Linear probe (LP)**: freeze backbone, train only final classifier.    
+- **Fine-tuning (FT0, FT1, FT2)**: progressively unfreeze layers.    
 ---
 
 ## Results & Discussion
 - **Residual connections in MLP** mitigate vanishing gradients:
 <img width="942" height="350" alt="Progetto senza titolo" src="https://github.com/user-attachments/assets/d1735013-5a21-4a6b-ad71-84ea177f770e" />
 <img width="2844" height="1494" alt="W B Chart 03_09_2025, 18_28_56" src="https://github.com/user-attachments/assets/d775f1c9-e055-4a7d-b691-ac7f0d22d946" />
-The deeper the mlp, the more you see the difference
+The deeper the mlp, the more you see the difference.
 
-  
-- **Residual CNNs** clearly outperform plain CNNs in convergence speed and final accuracy.  
+- **Residual CNNs** clearly outperform plain CNNs in convergence speed and final accuracy:
+<img width="666" height="497" alt="image" src="https://github.com/user-attachments/assets/4aff88e6-d1f1-4f7c-887e-4fad4f815ef3" />
+
+
+    
 - **Transfer learning** shows that the model is able to 
