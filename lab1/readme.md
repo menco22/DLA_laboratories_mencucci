@@ -44,7 +44,6 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 - **Scheduler**: ReduceLROnPlateau (factor=0.5, patience=2).  
 - **Regularization**: early stopping (patience=5–6).  
 - **Logging**: local + wandb (loss, accuracy, gradient flow, checkpoints).  
-- **Gradient analysis**: custom functions to plot weight/bias gradient norms across layers, highlighting vanishing/exploding gradients.
 
 ---
 
