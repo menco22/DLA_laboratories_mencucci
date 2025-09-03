@@ -40,7 +40,7 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 
 
 ## Training Pipeline
-- **Optimizer**: Adam (default),Adam/AdamW/Sgd/Sgd+momentum.  
+- **Optimizer**: Adam (default),Adam/AdamW/Sgd/Sgd+momentum during Fine Tuning exercise.  
 - **Scheduler**: ReduceLROnPlateau (factor=0.5, patience=2).  
 - **Regularization**: early stopping (patience=5–6).  
 - **Logging**: local + wandb (loss, accuracy, gradient flow, checkpoints).  
