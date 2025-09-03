@@ -1,83 +1,93 @@
-## Abstract
-Questo laboratorio esplora la costruzione, l’addestramento e l’analisi di **reti neurali profonde** su dataset di visione artificiale. Il notebook guida dalla **baseline MLP su MNIST** alla **CNN (con e senza connessioni residue) su CIFAR-10**, fino al **transfer learning su CIFAR-100** tramite *linear probing* e *fine-tuning*. Sono inclusi strumenti per **ispezionare il flusso del gradiente**, **monitorare gli esperimenti con Weights & Biases (wandb)** e **riutilizzare le feature** per classificatori lineari (SVM).
+Deep Learning Applications — Lab 1
 
----
+Residual Connections and Transfer Learning
 
-## Obiettivi didattici
-- Costruire una baseline **MLP** e comprenderne limiti su dati d’immagine.
-- Progettare una **CNN moderna** con *ConvBlock* e **ResidualBlock** (downsampling con `stride=2` e proiezione 1×1).
-- Analizzare l’**attenuazione del gradiente** con/senza skip-connection (*gradient flow*).
-- Implementare una routine di **training** con *early stopping*, **scheduler ReduceLROnPlateau**, logging su **wandb**.
-- Eseguire **transfer learning**: *linear probe* e **fine-tuning** progressivo su **CIFAR-100** partendo da una CNN addestrata su **CIFAR-10**.
-- (Opzionale) Impostare **knowledge distillation** (teacher→student) e **explainability** (Grad-CAM/saliency).
+Abstract
 
----
+This lab investigates the role of residual connections in mitigating vanishing gradients in deep neural networks, both in MLPs and CNNs, and explores transfer learning and fine-tuning for image classification. Starting from a simple MLP on MNIST, we progressively design and analyze convolutional architectures on CIFAR-10, with and without residual blocks. Finally, we transfer a pre-trained residual CNN to CIFAR-100, comparing linear probing and different fine-tuning strategies. All experiments are tracked using Weights & Biases (wandb) for reproducibility and monitoring.
 
-## Dataset
-- **MNIST** (28×28, 1 canale, 10 classi) — usato per l’introduzione/MLP.
-- **CIFAR-10** (32×32, RGB, 10 classi) — usato per CNN e analisi del gradiente.  
-  Normalizzazione: `mean=(0.4914, 0.4822, 0.4465)`, `std=(0.2470, 0.2435, 0.2616)`.
-- **CIFAR-100** (32×32, RGB, 100 classi) — usato per transfer learning.  
-  Normalizzazione: `mean=(0.5071, 0.4867, 0.4408)`, `std=(0.2675, 0.2565, 0.2761)`.  
-  Data augmentation (train): *RandomCrop*, *RandomHorizontalFlip* (più eventuali jitter), split di validazione da train (5.000 campioni).
+Objectives
 
-Batch size tipico: **64**. Dataloader per train/val/test con `num_workers=4`.
+Analyze gradient propagation in deep MLPs with and without residual connections.
 
----
+Design and train CNNs (plain vs residual) on CIFAR-10, assessing the effect of skip connections.
 
-## Architetture implementate
+Apply transfer learning from CIFAR-10 to CIFAR-100:
 
-### Baseline MLP (MNIST)
-- Classe: `oldMLP(layer_sizes)` → catena di layer **Linear** con ReLU (costruita in modo funzionale).  
-- Configurazione usata nel notebook: `[784] + [16]*2 + [10]` (width=16, depth=2).
+Linear probe (frozen backbone).
 
-### CNN non residua (CIFAR-10)
-- **ConvBlock**: due conv 3×3 + BatchNorm + ReLU, senza skip-connection.
-- Struttura: `input_layer` → sequenza di `ConvBlock` → `AdaptiveAvgPool2d(1)` → `fc`.
+Fine-tuning strategies (partial vs full).
 
-### CNN residua profonda
-- **ResidualBlock**: due conv 3×3 + BN; **skip** identità o proiezione 1×1 se cambia risoluzione/canali (`stride=2`).  
-- Classe principale (es.): `DeepResidualCNN(input_channels, num_classes, depth, base_channels)` con:
-  - `input_layer`: conv 3×3, BN, ReLU.
-  - `blocks`: pila di `ResidualBlock` con posizionamento di downsampling automatizzato.
-  - `global_pool`: `AdaptiveAvgPool2d((1,1))`.
-  - `fc`: classificatore lineare finale.
-- Iperparametri tipici dal notebook: `depth=20`, `base_channels=32`.
+Compare performance across architectures and training strategies.
 
----
+Datasets
 
-## Routine di training e monitoraggio
-- Funzione generica: `train_wandb(model, criterion, optimizer, scheduler, num_epochs, device, trainloader, valloader, early_stopping, patience, delta, use_wandb=True)`
-  - Log di **loss/accuracy** per batch ed epoch, tempo per batch, best model tracking.
-  - **Early stopping** con `patience` e `delta`.
-  - Scheduler: **ReduceLROnPlateau** (mode=`min`, `factor=0.5`, `patience=2`, `min_lr=1e-6`).
-- Ottimizzatori testati: **Adam** (default), alternative commentate (**SGD** con momentum, **AdamW**).  
-- Integrazione **wandb**: `setup_wandb(...)`, `save_model_to_wandb(...)` (esporta `*.pth` come *artifact*).
+MNIST (28×28 grayscale, 10 classes) – baseline for MLP.
 
-> **Nota sicurezza**: nel notebook compare una chiave `wandb.login(key=...)`. **Non** committare chiavi API; usare `wandb login` da CLI o variabili d’ambiente.
+CIFAR-10 (32×32 RGB, 10 classes) – convolutional architectures.
 
----
+CIFAR-100 (32×32 RGB, 100 classes) – transfer learning target.
 
-## Esperimenti (come presentati nel notebook)
+Data normalization and basic augmentation (random crop, horizontal flip) are applied. Validation splits are carved from the training sets for model selection.
 
-### Esercizio 1.0–1.1 — Setup e baseline MLP su MNIST
-- Addestramento MLP compatto per verificare pipeline, *dataloading* e logging.  
-  Iperparametri tipici: `epochs=20`, `lr=1e-4` (senza early stopping).
+Architectures
+MLP (Baseline on MNIST)
 
-### Esercizio 1.2 — Residual connections e *gradient flow*
-- Implementazione dei residui (versione MLP/CNN) e **analisi delle norme del gradiente**.  
-- Funzioni: `gradient_magnitudes_plot(...)`, `gradient_magnitudes_plot_cnn(...)` per visualizzare l’attenuazione/propagazione.
+Class: oldMLP — stack of fully-connected layers with ReLU activations.
 
-### Esercizio 1.3 — CNN su CIFAR-10
-- Addestramento CNN (non-residua e residua) su CIFAR-10.  
-- Obiettivo: stabilire una baseline più forte del MLP e confrontare gradienti.
+Experiment: depth vs gradient flow, with/without residual shortcut connections.
 
-### Esercizio 2.1 — *Fine-tune* su CIFAR-100
-**Fase 0: Linear Probe (LP)**  
-- Congela il backbone (`requires_grad=False` eccetto `fc`); addestra **solo** il classificatore finale.  
-- Esecuzione salvata come: `LP_20_deep_residual_cnn.pth` (artifacts wandb).
+CNNs on CIFAR-10
 
-**Fase 1–2: Fine-tuning progressivo (FT0/FT1/FT2)**  
-- Scongela progressivamente i blocchi (strategie FT0, FT1, FT2 nel notebook).  
-- Iperparametri tipici: `epochs=20`, `lr∈{1e-4, 1e-2}`, **ReduceLROnPlateau**, *early stopping* (`patience∈{5,6}`).  
-- Esecuzioni salvate come: `FT{0,1,2}_20_deep_residual_cnn.pth`.
+Plain CNN: sequential ConvBlocks (Conv3×3 + BN + ReLU).
+
+Residual CNN: ResidualBlock with identity/projection skip connections (1×1 conv for downsampling).
+
+Architecture: Input layer → Residual Blocks (with downsampling at increasing depths) → Global average pooling → Fully connected classifier.
+
+Transfer Learning Backbone
+
+Pre-trained deep residual CNN on CIFAR-10.
+
+Used as frozen feature extractor (linear probe) or progressively fine-tuned on CIFAR-100.
+
+Training Pipeline
+
+Optimizer: Adam (default), optionally AdamW/SGD.
+
+Scheduler: ReduceLROnPlateau (factor=0.5, patience=2).
+
+Regularization: early stopping (patience=5–6).
+
+Logging: wandb (loss, accuracy, gradient flow, checkpoints).
+
+Gradient analysis: custom functions to plot weight/bias gradient norms across layers, highlighting vanishing/exploding gradients.
+
+Experiments
+1. Residual Connections in MLP
+
+Training deep MLPs on MNIST.
+
+Observation: plain MLPs show gradient attenuation; residual connections stabilize training and improve accuracy.
+
+2. Residual Connections in CNN
+
+CIFAR-10 experiments with plain vs residual CNNs.
+
+Gradient norm plots reveal stronger propagation in residual networks.
+
+Residual CNNs achieve higher test accuracy and faster convergence.
+
+3. Transfer Learning & Fine-tuning on CIFAR-100 (Exercise 2)
+
+Linear probe (LP): freeze backbone, train only final classifier.
+
+Expected test accuracy ≈ 35–45%.
+
+Fine-tuning (FT0, FT1, FT2): progressively unfreeze layers.
+
+Full fine-tuning boosts accuracy to ≈ 45–60%, depending on learning rate and augmentation.
+
+Feature extractor + Linear SVM: additional baseline using pre-trained embeddings.
+
+Results & Discussion
