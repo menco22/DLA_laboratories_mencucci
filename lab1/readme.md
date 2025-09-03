@@ -63,7 +63,7 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 - **Fine-tuning (FT0, FT1, FT2)**: progressively unfreeze layers.    
 ---
 
-## Results & Discussion
+## Results
 - **Residual connections in MLP** mitigate vanishing gradients:
 <img width="942" height="350" alt="Progetto senza titolo" src="https://github.com/user-attachments/assets/d1735013-5a21-4a6b-ad71-84ea177f770e" />
 <img width="2844" height="1494" alt="W B Chart 03_09_2025, 18_28_56" src="https://github.com/user-attachments/assets/d775f1c9-e055-4a7d-b691-ac7f0d22d946" />
