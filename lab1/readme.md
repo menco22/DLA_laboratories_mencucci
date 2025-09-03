@@ -40,11 +40,6 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 - Pre-trained deep residual CNN on CIFAR-10.  
 - Used as frozen feature extractor (linear probe) or progressively fine-tuned on CIFAR-100.
 
-| Colonna 1 | Colonna 2 | Colonna 3 |
-|-----------|-----------|-----------|
-| Riga 1    | Valore A  | Valore B  |
-| Riga 2    | Valore C  | Valore D  |
-
 
 ## Training Pipeline
 - **Optimizer**: Adam (default),Adam/AdamW/Sgd/Sgd+momentum.  
@@ -75,7 +70,11 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 
 ## Results & Discussion
 - **Residual connections in MLP** mitigate vanishing gradients, both in MLPs and CNNs.
+
+<img width="942" height="350" alt="image" src="https://github.com/user-attachments/assets/6f34f5c2-8edf-44fd-9bd4-a7a13ef3ced5" />
     
+
+
   
 - **Residual CNNs** clearly outperform plain CNNs in convergence speed and final accuracy.  
 - **Transfer learning** shows that the model is able to 
