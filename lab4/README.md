@@ -38,9 +38,9 @@ A **pipeline for out-of-distribution (OOD) detection** was implemented. The goal
 ### First Results
  #### Simple CNN
  <div>
-  <img src="https://github.com/user-attachments/assets/b7640eae-c95f-4dca-a413-789d304a1251" width="300" style="display:inline-block; margin-right:5px;">
-  <img src="https://github.com/user-attachments/assets/3380993b-8b2b-4298-ad1e-bff838ca9f3c" width="300" style="display:inline-block; margin-right:5px;">
-  <img src="https://github.com/user-attachments/assets/7e525179-ef03-45ba-b9e8-bcd3092216d1" width="300" style="display:inline-block;">
+  <img src="https://github.com/user-attachments/assets/b7640eae-c95f-4dca-a413-789d304a1251" width="310" style="display:inline-block; margin-right:5px;">
+  <img src="https://github.com/user-attachments/assets/3380993b-8b2b-4298-ad1e-bff838ca9f3c" width="310" style="display:inline-block; margin-right:5px;">
+  <img src="https://github.com/user-attachments/assets/7e525179-ef03-45ba-b9e8-bcd3092216d1" width="310" style="display:inline-block;">
 </div>
 
 ---
