@@ -68,7 +68,7 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 ### 2.5 Improving the chosen model
 - I took the 20-DEEP_RESIDUAL_CNN model and tried to improve its learning abilities as much as possible in view of the next exercise.
 
-### 3. Transfer Learning & Fine-tuning on CIFAR-100 (Exercise 2)
+### 3. Transfer Learning & Fine-tuning on CIFAR-100 (Exercise 2.1)
 - **Feature extractor + Linear SVM**: additional baseline using pre-trained embeddings.  
 - **Linear probe (LP)**: freeze backbone, train only final classifier.    
 - **Fine-tuning (FT0, FT1, FT2)**: progressively unfreeze layers.    
