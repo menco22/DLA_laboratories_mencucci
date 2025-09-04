@@ -58,7 +58,10 @@ $$
 
 ### Results
 - **Qualitative:**  
-  Perturbations remain visually imperceptible for small \(\epsilon\), yet predictions change drastically.  
+  Perturbations remain visually imperceptible for small \(\epsilon\), yet predictions change drastically:
+  <img width="416" height="435" alt="download" src="https://github.com/user-attachments/assets/48b9aab1-81bd-4299-9a01-c0b595266e9f" />
+  <img width="416" height="435" alt="download" src="https://github.com/user-attachments/assets/f3d79525-369d-4ec2-875a-b1668bc987de" />
+
 - **Quantitative:**  
   Model accuracy drops sharply with increasing \(\epsilon\):
 
