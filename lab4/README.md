@@ -194,7 +194,7 @@ We can observe that in the case of the pre-trained model, very few pixels underw
 ## Exercise 2.2 – Adversarial Training (FGSM)
 
 ### Implementation
-The model is trained on batches of original and adversarial images (FGSM, ε=1/255) to increase robustness to input perturbations. Improvements in OOD detection can occur as a side effect because the model becomes less overconfident on inputs different from the training data.
+The pre_traiend model is trained on batches of original and adversarial images (FGSM, ε=1/255) to increase robustness to input perturbations. Improvements in OOD detection can occur as a side effect because the model becomes less overconfident on inputs different from the training data.
 
 ### Train Setup
 - Perturbation (FGSM): ε = 1/255
