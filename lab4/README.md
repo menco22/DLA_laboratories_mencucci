@@ -96,16 +96,19 @@ We can observe that in the case of the pre-trained model, very few pixels underw
 ## Exercise 2.2 – Adversarial Training (FGSM)
 
 ### Implementation
-During training, adversarial examples are generated on-the-fly using FGSM with \(\epsilon=1/255\). Both clean and adversarial images are used in each batch.  
+The model is trained on batches of original and adversarial images (FGSM, ε=1/255) to increase robustness to input perturbations. Improvements in OOD detection can occur as a side effect because the model becomes less overconfident on inputs different from the training data.
 
-### Results
-- The model becomes robust to small adversarial perturbations (ϵ ≤ 2/255).  
-- Slight trade-off: clean accuracy may decrease compared to standard training.  
-- OOD detection improves: the model produces lower confidence on OOD inputs, increasing separability (higher AUROC).  
+### Train Setup
+- Perturbation (FGSM): ϵ = 1/255
+- Epochs: 14
+- Loss: CrossEntropyLoss
+- Optimizer: Adam with learning rate 1e-4
 
-### Key Takeaways
-- Adversarial training is effective at the perturbation level it is trained on.  
-- Generalization to stronger attacks (e.g., PGD) is limited if only FGSM is used.  
+### Evaluation of In-Distribution Robustness
+- The model becomes robust to small adversarial perturbations (ϵ ≤ 2/255)  
+- OOD detection improves: the model produces lower confidence on OOD inputs, increasing separability (higher AUROC).
+  
+<img width="1479" height="490" alt="download" src="https://github.com/user-attachments/assets/0b026219-36a4-4789-8719-6e42d250afa9" />
 
 ---
 
