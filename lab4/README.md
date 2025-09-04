@@ -8,13 +8,17 @@ This notebook explores Out-of-Distribution (OOD) detection and model robustness 
 
 ### Softmax and Temperature-Scaled Softmax
 The **softmax function** converts a vector of logits \(z \in \mathbb{R}^C\) into probabilities:
-\[
+
+$$
 \text{softmax}(z)_i = \frac{e^{z_i}}{\sum_{j=1}^C e^{z_j}}
-\]
+$$
+
 The **temperature-scaled softmax** introduces a scalar \(T > 0\) to adjust confidence:
-\[
+
+$$
 \text{softmax}(z/T)_i = \frac{e^{z_i / T}}{\sum_{j=1}^C e^{z_j / T}}
-\]
+$$
+
 Higher \(T\) values produce **softer probability distributions**, reducing overconfidence on unseen inputs.
 
 ### Autoencoder and Reconstruction Error
@@ -23,9 +27,11 @@ An **autoencoder (AE)** is a neural network consisting of:
 - A **decoder** that reconstructs \(x\) from \(z\) as \(\hat{x}\).
 
 The **mean squared error (MSE)** is used as reconstruction loss:
-\[
+
+$$
 \text{MSE}(x, \hat{x}) = \frac{1}{N} \sum_{i=1}^{N} (x_i - \hat{x}_i)^2
-\]
+$$
+
 In OOD detection, the **negative MSE** is taken as the score, so that **higher scores correspond to in-distribution samples**.
 
 ### Sorted Score Plots
