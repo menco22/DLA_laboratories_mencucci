@@ -104,6 +104,7 @@ First Fine Tuning:
 Second Fine Tuning:
 <img width="1236" height="251" alt="image" src="https://github.com/user-attachments/assets/59b5fc29-1a59-4917-8794-87cb1effaba8" />
 From these results I had intuited that using adam or adamW as the optimizer would be the best strategy.
+
 Third Fine Tuning (only AdamW):
 <img width="1223" height="87" alt="image" src="https://github.com/user-attachments/assets/c5e589cb-49f0-4b1c-9205-28fa135fe541" />
 We can see clear signs of overfitting, so I tried to improve the model's performance one last time with a more aggressive data augmentation:
