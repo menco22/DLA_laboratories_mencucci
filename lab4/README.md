@@ -13,15 +13,10 @@ $$
 softmax_i(z) = e^{z_i} / \sum_{j=1}^C e^{z_j}
 $$
 
-
-
-
-
-
 The **temperature-scaled softmax** introduces a scalar \(T > 0\) to adjust confidence:
 
 $$
-\text{softmax}(z/T)_i = \frac{e^{z_i / T}}{\sum_{j=1}^C e^{z_j / T}}
+softmax(z/T)_i = e^{z_i / T} / \sum_{j=1}^C e^{z_j / T}
 $$
 
 Higher \(T\) values produce **softer probability distributions**, reducing overconfidence on unseen inputs.
