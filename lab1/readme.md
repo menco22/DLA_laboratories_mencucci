@@ -102,7 +102,7 @@ As seen before, the deepest the net get, the more the residual connection makes 
 <img width="2843" height="1493" alt="W B Chart 03_09_2025, 18_56_18" src="https://github.com/user-attachments/assets/69b25d27-08e3-4329-bba9-ad061453251d" />
 <img width="2843" height="1493" alt="W B Chart 03_09_2025, 18_56_50" src="https://github.com/user-attachments/assets/df5169a3-ac8c-45df-b4cc-11068ce1904b" />
 
--**Improved Model** I have achieved good results in improving the performance of the chosen model
+- **Improved Model** I have achieved good results in improving the performance of the chosen model
 <img width="974" height="100" alt="image" src="https://github.com/user-attachments/assets/a1abb275-dbab-44b8-a040-e701b974b14d" />
 <img width="3033" height="1593" alt="W B Chart 03_09_2025, 19_07_04" src="https://github.com/user-attachments/assets/ba862ff2-1fe2-4d3b-bca2-43c6284d63b5" />
 <img width="3033" height="1593" alt="W B Chart 03_09_2025, 19_07_32" src="https://github.com/user-attachments/assets/f47346c0-ae6d-45a2-915d-6edfe1b49a7f" />
