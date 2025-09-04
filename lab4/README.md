@@ -19,12 +19,13 @@ A **pipeline for out-of-distribution (OOD) detection** was implemented. The goal
 
 ### Pipeline Description
 
-1. **Score functions**: Two scoring strategies are used to measure how confident the model is on a given input:  
-   - `max_logit`: takes the maximum logit value for each sample.  
-   - `max_softmax`: computes the softmax of logits (optionally scaled by temperature `T`) and takes the maximum probability.  
+1. **Score functions**: Multiple scoring strategies are used to measure how confident the model is on a given input:  
+   - `max_logit`: takes the maximum logit value for each sample (for classifier-based models).  
+   - `max_softmax`: computes the softmax of logits (optionally scaled by temperature `T`) and takes the maximum probability (for classifier-based models).  
+   - `-MSE reconstruction error`: computes the negative mean squared error between input and reconstructed output (for autoencoder-based models). Higher values indicate samples more likely to be in-distribution.  
 
 2. **Score computation**:  
-   - Each score function is applied to all samples in the data loader using the `compute_scores` function.  
+   - Each score function is applied to all samples in the data loader.  
    - This produces a **1D tensor of confidence scores** for each dataset (ID and OOD).  
 
 3. **Visualization**:  
@@ -34,6 +35,7 @@ A **pipeline for out-of-distribution (OOD) detection** was implemented. The goal
 4. **Quantitative evaluation**:  
    - Confidence scores are concatenated for ID and OOD samples to create labels (`1` for ID, `0` for OOD).  
    - **ROC curves** are plotted to assess the model's performance numerically in distinguishing ID from OOD.  
+
 
 ### First Results
 Below are the graphs obtained by applying the pipeline to the models
