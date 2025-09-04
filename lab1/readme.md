@@ -96,6 +96,7 @@ As seen before, the deepest the net get, the more the residual connection makes 
 These features were used to train a linear classifier (Linear SVM) on CIFAR-100 to establish a baseline performance. The accuracy obtained with this approach was **41.97%**.
 
 - **Transfer learning** The model performed quite well after pre-training on cifar-10, considering the difficulty of the task on cifar-100.I experimented with different optimizer setups to see which one was best.
+
 Linear Probing:
 <img width="1230" height="249" alt="image" src="https://github.com/user-attachments/assets/e0685d18-cf20-448e-88e1-e7c9665530be" />
 First Fine Tuning:
