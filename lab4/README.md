@@ -60,13 +60,7 @@ $$
  ## Targetded 
  Perturbations remain visually imperceptible for small \(\epsilon\), yet predictions change drastically.
   - **Simple CNN** 
-  Budget
-  
-  $$
-  \(\epsilon\)
-  $$
-   
-   = 13/255
+  Budget: ε = 13/255
   <img width="416" height="435" alt="download" src="https://github.com/user-attachments/assets/48b9aab1-81bd-4299-9a01-c0b595266e9f" />
   <img width="416" height="435" alt="download" src="https://github.com/user-attachments/assets/f3d79525-369d-4ec2-875a-b1668bc987de" />
   
@@ -75,7 +69,7 @@ $$
   <img width="560" height="413" alt="download" src="https://github.com/user-attachments/assets/3a930553-577b-4fd2-ad08-e60fa9eb47f7" />
 
   - **Pre-Trained CNN**
-    Budget \(\epsilon\) = 4/255
+    Budget: ε = 4/255
    <img width="416" height="435" alt="download" src="https://github.com/user-attachments/assets/1089d9ce-3625-4be2-b4c4-540ec049ab8a" />
    <img width="416" height="435" alt="download" src="https://github.com/user-attachments/assets/29fa7311-df74-4ae8-a947-277832738826" />
 
