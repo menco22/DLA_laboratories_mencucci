@@ -72,7 +72,7 @@ where ε controls the strength of the perturbation.
 ---
 
 ## Datasets and Models
- - **Datasets:** CIFAR-10 (in-distribution), fake images or other datasets (out-of-distribution)  
+ - **Datasets:** CIFAR-10 (in-distribution), fake images (out-of-distribution)  
 - **Models:**
   - Simple CNN (0.56 test accuracy)
   - Autoencoder (3x32x32 -> 48x4x4 -> 3x32x32)
