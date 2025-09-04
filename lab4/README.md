@@ -8,7 +8,7 @@ This project explores adversarial attacks, adversarial training, and out-of-dist
  - **Datasets:** CIFAR-10 (in-distribution), fake images or other datasets (out-of-distribution)  
 - **Models:**
   - Simple CNN (0.56 test accuracy)
-  - Autoencoder
+  - Autoencoder (3x32x32 -> 48x4x4 -> 3x32x32)
   - ResNet20 pretrained on CIFAR-10
   - ResNet20 pretrained + adversarially trained with FGSM data augmentation  
 
