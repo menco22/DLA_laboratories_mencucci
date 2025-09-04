@@ -22,7 +22,7 @@ A **pipeline for out-of-distribution (OOD) detection** was implemented. The goal
 1. **Score functions**: Multiple scoring strategies are used to measure how confident the model is on a given input:  
    - `max_logit`: takes the maximum logit value for each sample (for classifier-based models).  
    - `max_softmax`: computes the softmax of logits (optionally scaled by temperature `T`) and takes the maximum probability (for classifier-based models).  
-   - `-MSE reconstruction error`: computes the negative mean squared error between input and reconstructed output (for autoencoder-based models). Higher values indicate samples more likely to be in-distribution.  
+   - `Negative MSE reconstruction error`: computes the negative mean squared error between input and reconstructed output (for autoencoder-based models). Higher values indicate samples more likely to be in-distribution.  
 
 2. **Score computation**:  
    - Each score function is applied to all samples in the data loader.  
