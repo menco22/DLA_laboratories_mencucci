@@ -64,6 +64,40 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 - Pre-trained deep residual CNN on CIFAR-10.  
 - Used as frozen feature extractor (linear probe) or progressively fine-tuned on CIFAR-100.
 
+## Architecture of my CNN
+This network is a **Residual CNN** customizable in terms of depth (`depth`) and channel width (`base_channels`), inspired by ResNet architectures.
+### Workflow
+1. **Input**  
+   - Images with `input_channels` (e.g., 3 for CIFAR-10)
+
+2. **Initial Layer**  
+   - `Conv2d` 3x3 + `BatchNorm2d` + `ReLU`  
+   - Produces `base_channels` feature maps
+
+3. **Residual Blocks**  
+   - Each block contains **2 convolutional layers (3x3)** + BatchNorm and ReLU, with a **skip connection**:
+     - Identity if number of channels and spatial dimensions match
+     - Conv1x1 + BatchNorm if stride ≠ 1 or number of channels changes
+   - **Downsampling**: some blocks use `stride=2` and double the number of channels
+   - **Downsampling distribution**:
+     - Maximum of 3 downsampling blocks to **avoid reducing the input spatial size too much** in deep networks
+     - Uniform distribution of downsampling blocks allows the network to correctly process the reduced spatial data
+
+4. **Pooling and Classification**  
+   - `AdaptiveAvgPool2d((1,1))` → reduces feature map to 1x1
+   - Flatten
+   - `Linear` → `num_classes`
+  
+### Relation to the `depth` parameter
+
+- `depth` indicates the **total number of convolutional layers**, including the first initial conv layer
+- Each `ResidualBlock` contains **2 convolutional layers**, therefore:
+
+$$
+\text{total\_blocks} = \frac{\text{depth} - 1}{2}
+$$
+
+
 
 ## Training Pipeline
 - **Optimizer**: Adam (default),Adam/AdamW/Sgd/Sgd+momentum during Fine Tuning exercise.  
@@ -90,6 +124,7 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 ---
 
 ## Results
+### Residual Connection Influence
 - **Residual connections in MLP** mitigate vanishing gradients:
 <img width="942" height="350" alt="Progetto senza titolo" src="https://github.com/user-attachments/assets/d1735013-5a21-4a6b-ad71-84ea177f770e" />
 <img width="2844" height="1494" alt="W B Chart 03_09_2025, 18_28_56" src="https://github.com/user-attachments/assets/d775f1c9-e055-4a7d-b691-ac7f0d22d946" />
@@ -102,25 +137,28 @@ As seen before, the deepest the net get, the more the residual connection makes 
 <img width="2843" height="1493" alt="W B Chart 03_09_2025, 18_56_18" src="https://github.com/user-attachments/assets/69b25d27-08e3-4329-bba9-ad061453251d" />
 <img width="2843" height="1493" alt="W B Chart 03_09_2025, 18_56_50" src="https://github.com/user-attachments/assets/df5169a3-ac8c-45df-b4cc-11068ce1904b" />
 
+
+### Improving Performances
 - **Improved Model** I have achieved good results in improving the performance of the chosen model
 <img width="974" height="100" alt="image" src="https://github.com/user-attachments/assets/a1abb275-dbab-44b8-a040-e701b974b14d" />
 <img width="3033" height="1593" alt="W B Chart 03_09_2025, 19_07_04" src="https://github.com/user-attachments/assets/ba862ff2-1fe2-4d3b-bca2-43c6284d63b5" />
 <img width="3033" height="1593" alt="W B Chart 03_09_2025, 19_07_32" src="https://github.com/user-attachments/assets/f47346c0-ae6d-45a2-915d-6edfe1b49a7f" />
 
+### Transfer Learning
 - **Feature Extractor Baseline** I extracted features from the last convolutional layer (before the fully-connected layer) of the pre-trained model on CIFAR-10.
 These features were used to train a linear classifier (Linear SVM) on CIFAR-100 to establish a baseline performance. The accuracy obtained with this approach was **41.97%**.
+ The model performed quite well after pre-training on cifar-10, considering the difficulty of the task on cifar-100.I experimented with different optimizer setups to see which one was best
 
-- **Transfer learning** The model performed quite well after pre-training on cifar-10, considering the difficulty of the task on cifar-100.I experimented with different optimizer setups to see which one was best.
 
-Linear Probing:
+- **Linear Probing** 
 <img width="1230" height="249" alt="image" src="https://github.com/user-attachments/assets/e0685d18-cf20-448e-88e1-e7c9665530be" />
-First Fine Tuning:
+- **First Fine Tuning**
 <img width="1236" height="258" alt="image" src="https://github.com/user-attachments/assets/3a26c283-e0d2-4583-b48d-81958d249d8c" />
-Second Fine Tuning:
+- **Second Fine Tuning**
 <img width="1236" height="251" alt="image" src="https://github.com/user-attachments/assets/59b5fc29-1a59-4917-8794-87cb1effaba8" />
 From these results I had intuited that using adam or adamW as the optimizer would be the best strategy.
 
-Third Fine Tuning (only AdamW):
+- **Third Fine Tuning (only AdamW)**
 <img width="1223" height="87" alt="image" src="https://github.com/user-attachments/assets/c5e589cb-49f0-4b1c-9205-28fa135fe541" />
 We can see clear signs of overfitting, so I tried to improve the model's performance one last time with a more aggressive data augmentation:
 <img width="1237" height="89" alt="image" src="https://github.com/user-attachments/assets/84f7a9a2-4128-4084-ba39-db71c05e99cb" />
