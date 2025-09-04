@@ -106,21 +106,21 @@ A **pipeline for out-of-distribution (OOD) detection** was implemented. The goal
 
 ### First Results
 Below are the graphs obtained by applying the pipeline to the models
- #### Simple CNN
+ - **Simple CNN**
  <div>
   <img src="https://github.com/user-attachments/assets/b7640eae-c95f-4dca-a413-789d304a1251" width="330" style="display:inline-block; margin-right:5px;">
   <img src="https://github.com/user-attachments/assets/46d96d99-0635-4535-bbd8-346084985314" width="330" style="display:inline-block;">
   <img src="https://github.com/user-attachments/assets/bbfb5b98-a08a-4250-a472-03638187c0ef" width="330" style="display:inline-block;">
 </div>
 
- #### Autoencoder
+ - **Autoencoder**
 <div>
   <img src="https://github.com/user-attachments/assets/83ff31ca-a142-41e5-9bca-96ac198626d3" width="330" style="display:inline-block; margin-right:5px;">
   <img src="https://github.com/user-attachments/assets/689a99cd-9e1d-4921-80a0-ebb9fab59b48" width="330" style="display:inline-block; margin-right:5px;">
   <img src="https://github.com/user-attachments/assets/1fee31ea-8791-4924-b78c-ca27265b46fc" width="330" style="display:inline-block;">
 </div>
 
-#### Pre_trained CNN
+- **Pre_trained CNN**
 <div>
   <img src="https://github.com/user-attachments/assets/e1d88ecc-3d0a-4e3d-8d1a-e63dc79d4936" width="330" style="display:inline-block; margin-right:5px;">
   <img src="https://github.com/user-attachments/assets/5f7358ca-eeaa-4ca8-bd24-dfa646712cde" width="330" style="display:inline-block; margin-right:5px;">
@@ -214,7 +214,7 @@ The pre_traiend model is trained on batches of original and adversarial images (
 Compute confidence scores using ODIN, scaling logits by T and applying a small input perturbation ε to reduce overconfidence on OOD inputs. This improves the separation between ID and OOD data, leading to higher AUROC values, which quantitatively measure the model’s ability to distinguish ID from OOD.
 
 ### Results
-  #### Simple CNN
+ - **Simple CNN**
 
   | eps       | T=1       | T=10      | T=100     | T=1000    |
 |-----------|-----------|-----------|-----------|-----------|
@@ -228,7 +228,7 @@ Compute confidence scores using ODIN, scaling logits by T and applying a small i
 
 <img width="702" height="547" alt="download" src="https://github.com/user-attachments/assets/3dd98ca3-6a2b-42d8-8e30-6232d5849a72" />
   
-  #### ResNet20 pretrained
+  - **ResNet20 pretrained**
 
   | eps       | T=1       | T=10      | T=100     | T=1000    |
 |-----------|-----------|-----------|-----------|-----------|
@@ -242,7 +242,7 @@ Compute confidence scores using ODIN, scaling logits by T and applying a small i
 
 <img width="702" height="547" alt="download" src="https://github.com/user-attachments/assets/31c0e2a1-7be9-4e22-9711-76048f443f8f" />
 
-#### ResNet20 pretrained + FGSM adversarial training
+- **ResNet20 pretrained + FGSM adversarial training**
 
 | eps       | T=1       | T=10      | T=100     | T=1000    |
 |-----------|-----------|-----------|-----------|-----------|
