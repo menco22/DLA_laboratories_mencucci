@@ -11,6 +11,15 @@ Key components:
 - **Multi-head self-attention**: captures dependencies across different representational subspaces.  
 - **Feed-forward layers and residual connections**: increase representational capacity and stability.  
 
+### DistilBERT  
+**DistilBERT** is a lightweight, distilled version of BERT designed to reduce model size and increase inference speed while retaining most of BERT's performance.  
+
+Key ideas:  
+- **Knowledge distillation**: DistilBERT is trained to mimic a larger teacher BERT model. The student model learns to reproduce the teacher’s output logits.  
+- **Smaller architecture**: approximately 40% fewer parameters than BERT-base.  
+- **Faster inference**: reduced depth and size allow quicker predictions, making it suitable for real-time or resource-constrained scenarios.  
+- **Preserves essential features**: maintains the same embedding size and uses self-attention, allowing it to capture contextual relationships effectively. 
+
 ### LoRA (Low-Rank Adaptation)  
 LoRA is an efficient fine-tuning method for large models. Instead of updating all parameters, it introduces low-rank matrices \(A\) and \(B\) into selected layers. The updated weight becomes:  
 
