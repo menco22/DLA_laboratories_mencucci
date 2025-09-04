@@ -1,10 +1,19 @@
 
 # Deep Learning Applications — Lab 1  
-**Residual Connections and Transfer Learning**
-
-## Abstract
 This lab investigates the role of **residual connections** in mitigating vanishing gradients in deep neural networks, both in **MLPs** and **CNNs**, and explores **transfer learning and fine-tuning** for image classification. Starting from a simple MLP on MNIST, we progressively design and analyze convolutional architectures on CIFAR-10, with and without residual blocks. Finally, we transfer a pre-trained residual CNN to CIFAR-100, comparing *linear probing* and different fine-tuning strategies. All experiments are tracked using **Weights & Biases (wandb)** for monitoring.
+---
+## Theoretical Background
 
+### Multilayer Perceptron (MLP)
+An **MLP** is a feed-forward neural network with multiple hidden layers. Each layer applies linear transformations followed by nonlinear activations, allowing the network to approximate complex functions. MLPs are not well suited for data with strong spatial structure, like images.
+
+### Convolutional Neural Network (CNN)
+**CNNs** are designed for grid-structured data such as images. Convolutional layers use shared filters to extract local patterns and build hierarchical feature representations. **Residual networks (ResNets)** introduce skip connections, easing optimization and enabling very deep architectures.
+
+### Fine-Tuning and Linear Probing
+**Fine-tuning** adapts pre-trained models to new tasks:
+- **Linear probing**: freeze the backbone and train only a new linear classifier.
+- **Full fine-tuning**: update part or all of the backbone along with the classifier, achieving stronger adaptation but at higher computational cost.
 ---
 
 ## Objectives
