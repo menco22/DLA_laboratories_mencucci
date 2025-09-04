@@ -161,6 +161,17 @@ We can see clear signs of overfitting, so I tried to improve the model's perform
 <img width="3033" height="1593" alt="W B Chart 03_09_2025, 19_19_13" src="https://github.com/user-attachments/assets/f001b102-c47b-4ca5-b9fb-83bbfc230021" />
 <img width="3033" height="1593" alt="W B Chart 03_09_2025, 19_19_37" src="https://github.com/user-attachments/assets/9c1b8318-8cf6-43c6-b0bc-df4d8a1ea0b5" />
 
+| Fine-Tuning Strategy                                | Optimizer | Validation Accuracy (%) | Notes                       |
+|----------------------------------------------------|-----------|------------------------|-----------------------------|
+| Feature extractor + SVC baseline                  | –         | 41.97                  | Baseline                   |
+| Linear probing (only classification head)        | Adam      | 37.72                  | –                           |
+| Fine-tuning classification head + block 8        | AdamW     | 41.76                  | –                           |
+| Fine-tuning classification head + block 8 + block 7 | AdamW     | 45.28                  | –                           |
+| Fine-tuning classification head + blocks 6-8     | AdamW     | 47.32                  | Overfitting observed       |
+| Fine-tuning classification head + blocks 6-8 + data augmentation | AdamW | 50.32 | Best result, mitigates overfitting |
+
+
+
 ## Refernces
    1. Bagdanov, A. D., DLA course material (2025)
 
