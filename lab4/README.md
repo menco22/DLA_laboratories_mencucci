@@ -5,8 +5,7 @@ This project explores adversarial attacks, adversarial training, and out-of-dist
 ---
 
 ## Environment
-- **Framework:** PyTorch  
-- **Datasets:** CIFAR-10 (in-distribution), fake images or other datasets (out-of-distribution)  
+ - **Datasets:** CIFAR-10 (in-distribution), fake images or other datasets (out-of-distribution)  
 - **Models:**
   - Simple CNN (baseline)
   - ResNet20 pretrained on CIFAR-10
