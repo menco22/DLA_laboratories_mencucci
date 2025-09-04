@@ -10,7 +10,22 @@ This lab investigates the role of **residual connections** in mitigating vanishi
 An **MLP** is a feed-forward neural network with multiple hidden layers. Each layer applies linear transformations followed by nonlinear activations, allowing the network to approximate complex functions.
 
 ### Convolutional Neural Network (CNN)
-**CNNs** are designed for grid-structured data such as images. Convolutional layers use shared filters to extract local patterns and build hierarchical feature representations. **Residual networks (ResNets)** introduce skip connections, easing optimization and enabling very deep architectures.
+**CNNs** are designed for grid-structured data such as images. Convolutional layers use shared filters to extract local patterns and build hierarchical feature representations. **Residual networks (ResNets)** introduce residual connections, easing optimization and enabling very deep architectures.
+
+### Residual Connections
+Residual connections (or skip connections) are links that bypass one or more layers by adding the input of a layer directly to its output. Formally, a residual block computes:
+
+$$
+y = F(x) + x
+$$
+
+where 𝐹(𝑥) is the transformation applied by the block. These connections:
+1. Mitigate the vanishing gradient problem in deep networks;
+2. Facilitate the training of very deep architectures;
+3. Allow layers to learn residual functions, making optimization easier;
+
+They are the core idea behind ResNets, which achieve state-of-the-art performance while keeping extremely deep networks trainable.
+
 
 ### Fine-Tuning and Linear Probing
 **Fine-tuning** adapts pre-trained models to new tasks:
@@ -23,8 +38,11 @@ An **MLP** is a feed-forward neural network with multiple hidden layers. Each la
 - Design and train **CNNs** (plain vs residual) on CIFAR-10, assessing the effect of skip connections.  
 - Apply **transfer learning** from CIFAR-10 to CIFAR-100:
   - Linear probe (frozen backbone).  
-  - Fine-tuning.  
+  - Fine-tuning.
 
+
+
+Residual connections (or skip connections) are links that bypass one or more layers by adding the input of a layer directly to its output. Formally, a residual block computes:
 ---
 
 ## Datasets
