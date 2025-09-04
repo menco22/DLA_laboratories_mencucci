@@ -7,7 +7,7 @@ This project explores adversarial attacks, adversarial training, and out-of-dist
 ## Datasets and Models
  - **Datasets:** CIFAR-10 (in-distribution), fake images or other datasets (out-of-distribution)  
 - **Models:**
-  - Simple CNN (baseline)
+  - Simple CNN
   - Autoencoder
   - ResNet20 pretrained on CIFAR-10
   - ResNet20 pretrained + adversarially trained with FGSM data augmentation  
@@ -57,12 +57,15 @@ x_{\text{adv}} = x - \epsilon \cdot \text{sign}(\nabla_x L(\theta, x, y_{\text{t
 $$
 
 ### Results
-- **Qualitative:**  
+ ## Targetded 
+  - **Simple CNN** 
   Perturbations remain visually imperceptible for small \(\epsilon\), yet predictions change drastically:
   <img width="416" height="435" alt="download" src="https://github.com/user-attachments/assets/48b9aab1-81bd-4299-9a01-c0b595266e9f" />
   <img width="416" height="435" alt="download" src="https://github.com/user-attachments/assets/f3d79525-369d-4ec2-875a-b1668bc987de" />
+  - **Pre-Trained CNN**
 
-- **Quantitative:**  
+
+ ## Untargeted  
   Model accuracy drops sharply with increasing \(\epsilon\):
 
 | ϵ (1/255 scale) | Accuracy (%) |
