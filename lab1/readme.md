@@ -80,7 +80,7 @@ Data normalization and basic augmentation (random crop, horizontal flip) are app
 <img width="2844" height="1494" alt="W B Chart 03_09_2025, 18_28_56" src="https://github.com/user-attachments/assets/d775f1c9-e055-4a7d-b691-ac7f0d22d946" />
 The deeper the mlp, the more you see the difference.
 
-- **Residual CNNs** clearly outperform plain CNNs in convergence speed and final accuracy:
+- **Residual CNNs** clearly outperform non-residual CNNs in convergence speed and final accuracy:
 <img width="591" height="489" alt="image" src="https://github.com/user-attachments/assets/02386037-ddd3-4a9c-8379-2f8720d11336" />
 
 As seen before, the deepest the net get, the more the residual connection makes the difference, although in this case we have more of a phenomenon of gradient degradation rather than disappearance.
