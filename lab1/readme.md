@@ -101,6 +101,26 @@ This network is a **Residual CNN** customizable in terms of depth (`depth`) and 
 - **Regularization**: early stopping (patience=5–6).  
 - **Logging**: local + wandb (loss, accuracy, gradient flow, checkpoints).  
 
+## Fine-Tuning Setup
+
+### Linear Probing (only classification head)
+- **Optimizer**: SGD (lr=0.01)  
+- **Scheduler**: ReduceLROnPlateau (factor=0.5, patience=2, min_lr=1e-6)  
+- **Loss**: CrossEntropyLoss  
+- **Regularization**: Early stopping (patience=5, delta=0.001)  
+- **Epochs**: 20  
+- **Logging**: local + wandb (loss, accuracy, checkpoints)  
+
+### Progressive Fine-Tuning (unfreezing deeper blocks)
+- **Optimizer**: Adam / AdamW / SGD (lr_adam=1e-4, lr_sgd=0.01)  
+- **Scheduler**: ReduceLROnPlateau (factor=0.5, patience=2, min_lr=1e-6)  
+- **Loss**: CrossEntropyLoss  
+- **Regularization**: Early stopping (patience=6, delta=0.001)  
+- **Epochs**: 20  
+- **Logging**: local + wandb (loss, accuracy, checkpoints)  
+
+> Notes: Early stopping halts training if the **validation loss** does not improve for the specified patience, while the scheduler reduces the learning rate when progress stagnates. These settings help stabilize training and prevent overfitting during fine-tuning.
+
 ---
 
 ## Experiments
@@ -148,8 +168,10 @@ These features were used to train a linear classifier (Linear SVM) on CIFAR-100 
 
 - **Linear Probing** 
 <img width="1230" height="249" alt="image" src="https://github.com/user-attachments/assets/e0685d18-cf20-448e-88e1-e7c9665530be" />
+
 - **First Fine Tuning**
 <img width="1236" height="258" alt="image" src="https://github.com/user-attachments/assets/3a26c283-e0d2-4583-b48d-81958d249d8c" />
+
 - **Second Fine Tuning**
 <img width="1236" height="251" alt="image" src="https://github.com/user-attachments/assets/59b5fc29-1a59-4917-8794-87cb1effaba8" />
 From these results I had intuited that using adam or adamW as the optimizer would be the best strategy.
@@ -162,6 +184,9 @@ We can see clear signs of overfitting, so I tried to improve the model's perform
 <img width="3033" height="1593" alt="W B Chart 03_09_2025, 19_19_37" src="https://github.com/user-attachments/assets/9c1b8318-8cf6-43c6-b0bc-df4d8a1ea0b5" />
 
 ### Transfer Learning Summary Table
+The results show that progressively unfreezing deeper blocks improves validation accuracy, with the combination of blocks 6-8 and data augmentation achieving the best performance (50.32%). Overfitting can occur when too many layers are fine-tuned without augmentation, highlighting the importance of careful regularization and data augmentation strategies. Achieving 50.32% on CIFAR-100 using a 20-layer ResNet pretrained on CIFAR-10 demonstrates the effectiveness of partial fine-tuning and careful handling of more challenging tasks.
+
+
 
 | Fine-Tuning Strategy                                | Optimizer | Validation Accuracy (%) | Notes                       |
 |----------------------------------------------------|-----------|------------------------|-----------------------------|
