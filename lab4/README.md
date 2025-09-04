@@ -144,7 +144,7 @@ $$
 - **Targeted attack:** minimizes loss with respect to a chosen target label.
 
 $$
-\operatorname{softmax}\!\left(\frac{z_i}{T}\right) = \frac{e^{z_i/T}}{\sum_{j=1}^C e^{z_j/T}}
+softmax(z_i / T) = e^{z_i / T} / \sum_{j=1}^C e^{z_j / T}
 $$
 
 ### Results
