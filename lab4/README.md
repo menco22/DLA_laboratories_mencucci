@@ -268,6 +268,6 @@ Compute confidence scores using ODIN, scaling logits by T and applying a small i
 
 ---
 ## References
- ### 1 Bagdanov, A. D., DLA course material (2025)
- ### 2 Seidenari, L., DLA course material (2025)
+  1. Bagdanov, A. D., DLA course material (2025)
+  2. Seidenari, L., DLA course material (2025)
 
