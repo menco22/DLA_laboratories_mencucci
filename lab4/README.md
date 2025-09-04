@@ -113,37 +113,54 @@ The model is trained on batches of original and adversarial images (FGSM, ε=1/2
 ---
 
 ## Exercise 3.1 – ODIN for OOD Detection
-
-ODIN improves OOD detection using:  
-1. **Temperature scaling (T):** sharpens or smooths softmax probabilities.  
-2. **Small input perturbation (ϵ):** moves ID samples toward higher confidence predictions.  
+Compute confidence scores using ODIN, scaling logits by T and applying a small input perturbation ε to reduce overconfidence on OOD inputs. This improves the separation between ID and OOD data, leading to higher AUROC values, which quantitatively measure the model’s ability to distinguish ID from OOD.
 
 ### Results
+  #### Simple CNN
+
+  | eps       | T=1       | T=10      | T=100     | T=1000    |
+|-----------|-----------|-----------|-----------|-----------|
+| 0.000000  | 0.414014  | 0.633222  | 0.662307  | 0.665064  |
+| 0.003922  | 0.382092  | 0.618442  | 0.650687  | 0.653753  |
+| 0.007843  | 0.354822  | 0.602071  | 0.637345  | 0.640756  |
+| 0.015686  | 0.314867  | 0.567371  | 0.607758  | 0.611701  |
+| 0.019608  | 0.300875  | 0.549942  | 0.592212  | 0.596382  |
+| 0.023529  | 0.289841  | 0.532804  | 0.576594  | 0.580983  |
+| 0.039216  | 0.265351  | 0.471823  | 0.517702  | 0.522481  |
+
+<img width="702" height="547" alt="download" src="https://github.com/user-attachments/assets/3dd98ca3-6a2b-42d8-8e30-6232d5849a72" />
+  
+  #### ResNet20 pretrained
+
+  | eps       | T=1       | T=10      | T=100     | T=1000    |
+|-----------|-----------|-----------|-----------|-----------|
+| 0.000000  | 0.631797  | 0.621297  | 0.621569  | 0.621587  |
+| 0.003922  | 0.883138  | 0.856334  | 0.853637  | 0.853419  |
+| 0.007843  | 0.929626  | 0.923397  | 0.921622  | 0.921480  |
+| 0.015686  | 0.900511  | 0.920651  | 0.920202  | 0.920185  |
+| 0.019608  | 0.860135  | 0.891941  | 0.892418  | 0.892482  |
+| 0.023529  | 0.806521  | 0.846623  | 0.847982  | 0.848085  |
+| 0.039216  | 0.525699  | 0.568841  | 0.572601  | 0.572835  |
+
+<img width="702" height="547" alt="download" src="https://github.com/user-attachments/assets/31c0e2a1-7be9-4e22-9711-76048f443f8f" />
 
 #### ResNet20 pretrained + FGSM adversarial training
-- AUROC baseline: 0.94  
-- Peak AUROC: ~0.999 for ϵ ≈ 0.015–0.02  
-- Very stable across T = 1–1000  
 
-#### Simple CNN
-- AUROC baseline: 0.41 (worse than random)  
-- Max AUROC: ~0.66 with ODIN  
-- ODIN ineffective for weak models  
+| eps       | T=1       | T=10      | T=100     | T=1000    |
+|-----------|-----------|-----------|-----------|-----------|
+| 0.000000  | 0.942769  | 0.962699  | 0.962432  | 0.962387  |
+| 0.003922  | 0.991680  | 0.990626  | 0.990023  | 0.989959  |
+| 0.007843  | 0.997026  | 0.996430  | 0.996163  | 0.996138  |
+| 0.015686  | 0.998441  | 0.998561  | 0.998455  | 0.998447  |
+| 0.019608  | 0.998430  | 0.998796  | 0.998722  | 0.998713  |
+| 0.023529  | 0.998209  | 0.998859  | 0.998808  | 0.998804  |
+| 0.039216  | 0.994258  | 0.997834  | 0.997875  | 0.997874  |
 
-#### ResNet20 pretrained (no adversarial augmentation)
-- AUROC baseline: 0.63  
-- Peak AUROC: ~0.92 for ϵ ≈ 0.007–0.015  
-- Declines for ϵ > 0.02  
-
-### Key Takeaways
-- ODIN significantly improves OOD detection for strong models but not for weak ones.  
-- ϵ is the most important parameter: small values (~0.007–0.02) yield the best results.  
-- Temperature T has secondary impact compared to ϵ.  
-- Adversarial training enhances both robustness and OOD detection.  
+<img width="702" height="549" alt="download" src="https://github.com/user-attachments/assets/33b4c803-f805-4901-b098-6681f7040be5" />
 
 ---
 
-## Final Comparison
+### Final Comparison
 
 | Model | AUROC baseline (ϵ=0, T=1) | Max AUROC (ODIN) |
 |-------|---------------------------|------------------|
@@ -153,9 +170,3 @@ ODIN improves OOD detection using:
 
 ---
 
-## Conclusions
-1. Exercise 1 established a baseline OOD detector based on softmax confidence.  
-2. Exercise 2.1 showed that small, imperceptible perturbations can drastically reduce accuracy.  
-3. Exercise 2.2 demonstrated that adversarial training improves robustness and OOD separation.  
-4. Exercise 3.1 confirmed that ODIN is highly effective for strong models, especially when combined with adversarial training.  
-5. Model capacity and training strategy are crucial: weak models remain ineffective regardless of ODIN.  
