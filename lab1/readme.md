@@ -93,9 +93,9 @@ This network is a **Residual CNN** customizable in terms of depth (`depth`) and 
 - `depth` indicates the **total number of convolutional layers**, including the first initial conv layer
 - Each `ResidualBlock` contains **2 convolutional layers**, therefore:
 
-$$
+\[
 \text{total\_blocks} = \frac{\text{depth} - 1}{2}
-$$
+\]
 
 
 
