@@ -76,7 +76,7 @@ $$
 We can observe that in the case of the pre-trained model, very few pixels underwent significant changes, with perturbations remaining between -0.016 and 0.016 (compared to the previous range of -0.05 and 0.05).Furthermore, the pre-trained model was successfully attacked with a much smaller perturbation—a fact already evident from the budget—compared to the inefficient model trained from scratch. This is likely because the pre-trained model has already learned to recognize the essential features of images, which paradoxically makes it more vulnerable. A more performant model doesn't require large pixel modifications to change its prediction.
 
  ## Untargeted  
-  Model accuracy drops sharply with increasing \(\epsilon\):
+  Pre_Trained model's accuracy drops sharply with increasing \(\epsilon\):
 
 | ϵ (1/255 scale) | Accuracy (%) |
 |-----------------|--------------|
@@ -87,11 +87,7 @@ We can observe that in the case of the pre-trained model, very few pixels underw
 | 8               | 14.09        |
 | 16              | 11.82        |
 
-### Key Takeaways
-- Pretrained models are more vulnerable: they can be fooled with very small perturbations.  
-- Robustness and accuracy are in tension: higher accuracy often leads to lower robustness.  
-
----
+<img width="531" height="393" alt="download" src="https://github.com/user-attachments/assets/5bf64d93-cabf-4a06-b88d-47adf43e36de" />
 
 ## Exercise 2.2 – Adversarial Training (FGSM)
 
