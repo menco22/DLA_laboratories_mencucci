@@ -36,12 +36,31 @@ A **pipeline for out-of-distribution (OOD) detection** was implemented. The goal
    - **ROC curves** are plotted to assess the model's performance numerically in distinguishing ID from OOD.  
 
 ### First Results
+Below are the graphs obtained by applying the pipeline to the models
  #### Simple CNN
  <div>
   <img src="https://github.com/user-attachments/assets/b7640eae-c95f-4dca-a413-789d304a1251" width="330" style="display:inline-block; margin-right:5px;">
   <img src="https://github.com/user-attachments/assets/3380993b-8b2b-4298-ad1e-bff838ca9f3c" width="330" style="display:inline-block; margin-right:5px;">
   <img src="https://github.com/user-attachments/assets/7e525179-ef03-45ba-b9e8-bcd3092216d1" width="330" style="display:inline-block;">
 </div>
+
+ #### Autoencoder
+<div>
+  <img src="https://github.com/user-attachments/assets/83ff31ca-a142-41e5-9bca-96ac198626d3" width="330" style="display:inline-block; margin-right:5px;">
+  <img src="https://github.com/user-attachments/assets/689a99cd-9e1d-4921-80a0-ebb9fab59b48" width="330" style="display:inline-block; margin-right:5px;">
+  <img src="https://github.com/user-attachments/assets/1fee31ea-8791-4924-b78c-ca27265b46fc" width="330" style="display:inline-block;">
+</div>
+
+#### Pre_trained CNN
+<div>
+  <img src="https://github.com/user-attachments/assets/e1d88ecc-3d0a-4e3d-8d1a-e63dc79d4936" width="330" style="display:inline-block; margin-right:5px;">
+  <img src="https://github.com/user-attachments/assets/5f7358ca-eeaa-4ca8-bd24-dfa646712cde" width="330" style="display:inline-block; margin-right:5px;">
+  <img src="https://github.com/user-attachments/assets/36216ed5-6a26-4880-b1e5-3302ab667c31" width="330" style="display:inline-block;">
+</div>
+
+
+
+
 
 ---
 
