@@ -15,6 +15,9 @@ $$
 
 into probabilities:
 
+$$
+softmax_i(z) = e^{z_i} / \sum_{j=1}^C e^{z_j}
+$$
 
 The **temperature-scaled softmax** introduces a scalar \(T > 0\) to adjust confidence:
 
