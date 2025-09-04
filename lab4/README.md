@@ -4,10 +4,11 @@ This project explores adversarial attacks, adversarial training, and out-of-dist
 
 ---
 
-## Environment
+## Datasets and Models
  - **Datasets:** CIFAR-10 (in-distribution), fake images or other datasets (out-of-distribution)  
 - **Models:**
   - Simple CNN (baseline)
+  - Autoencoder
   - ResNet20 pretrained on CIFAR-10
   - ResNet20 pretrained + adversarially trained with FGSM data augmentation  
 
