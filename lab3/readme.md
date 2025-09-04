@@ -3,7 +3,7 @@
 ## Theoretical Background  
 
 ### Transformers  
-Transformers are the current state-of-the-art in deep learning for NLP and vision tasks. Their key innovation is the **self-attention mechanism**, which enables the model to weigh relationships between tokens dynamically, regardless of their position in the sequence.
+Transformers are the current state-of-the-art in deep learning for NLP. Their key innovation is the **self-attention mechanism**, which enables the model to weigh relationships between tokens dynamically, regardless of their position in the sequence.
 
 Key components:  
 - **Input/Output embeddings**: map tokens to continuous vector representations.  
