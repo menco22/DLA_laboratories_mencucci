@@ -10,7 +10,7 @@ This notebook explores Out-of-Distribution (OOD) detection and model robustness 
 The **softmax function** converts a vector of logits \(z \in \mathbb{R}^C\) into probabilities:
 
 $$
-\operatorname{softmax}(z)_i = \frac{e^{z_i}}{\sum_{j=1}^{C} e^{z_j}}
+  \operatorname{softmax}(z)_i = \frac{e^{z_i}}{\sum_{j=1}^{C} e^{z_j}}
 $$
 
 The **temperature-scaled softmax** introduces a scalar \(T > 0\) to adjust confidence:
