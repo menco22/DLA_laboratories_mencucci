@@ -80,7 +80,7 @@ $$
 We can observe that in the case of the pre-trained model, very few pixels underwent significant changes, with perturbations remaining between -0.016 and 0.016 (compared to the previous range of -0.05 and 0.05).Furthermore, the pre-trained model was successfully attacked with a much smaller perturbation—a fact already evident from the budget—compared to the inefficient model trained from scratch. This is likely because the pre-trained model has already learned to recognize the essential features of images, which paradoxically makes it more vulnerable. A more performant model doesn't require large pixel modifications to change its prediction.
 
  ## Untargeted  
-  Pre_Trained model's accuracy drops sharply with increasing \(\epsilon\):
+  Pre_Trained model's accuracy drops sharply with increasing ε:
 
 | ϵ (1/255 scale) | Accuracy (%) |
 |-----------------|--------------|
