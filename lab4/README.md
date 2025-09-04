@@ -4,6 +4,51 @@ This project explores adversarial attacks, adversarial training, and out-of-dist
 
 ---
 
+## Theoretical Background
+
+### Softmax and Temperature-Scaled Softmax
+The **softmax function** converts a vector of logits \(z \in \mathbb{R}^C\) into probabilities:
+\[
+\text{softmax}(z)_i = \frac{e^{z_i}}{\sum_{j=1}^C e^{z_j}}
+\]
+The **temperature-scaled softmax** introduces a scalar \(T > 0\) to adjust confidence:
+\[
+\text{softmax}(z/T)_i = \frac{e^{z_i / T}}{\sum_{j=1}^C e^{z_j / T}}
+\]
+Higher \(T\) values produce **softer probability distributions**, reducing overconfidence on unseen inputs.
+
+### Autoencoder and Reconstruction Error
+An **autoencoder (AE)** is a neural network consisting of:
+- An **encoder** that maps input \(x\) to a latent representation \(z\).
+- A **decoder** that reconstructs \(x\) from \(z\) as \(\hat{x}\).
+
+The **mean squared error (MSE)** is used as reconstruction loss:
+\[
+\text{MSE}(x, \hat{x}) = \frac{1}{N} \sum_{i=1}^{N} (x_i - \hat{x}_i)^2
+\]
+In OOD detection, the **negative MSE** is taken as the score, so that **higher scores correspond to in-distribution samples**.
+
+### Sorted Score Plots
+Sorted score plots display confidence scores in ascending order.  
+- ID samples typically have **higher scores**, OOD samples lower scores.  
+- The separation between the two curves visually indicates how well the scoring function discriminates ID from OOD.
+
+### ROC Curve and AUROC
+The **Receiver Operating Characteristic (ROC) curve** plots the **true positive rate (TPR)** against the **false positive rate (FPR)** at various thresholds.  
+- **AUROC** (Area Under the ROC curve) summarizes the model’s discriminative ability:  
+  - 1.0 → perfect separation  
+  - 0.5 → random guessing  
+- Higher AUROC indicates better OOD detection performance.
+
+### ODIN Score
+**ODIN** combines **temperature scaling** and **small input perturbations** to calibrate confidence scores.  
+- Forward pass logits are divided by temperature \(T\).  
+- Input is perturbed slightly along the gradient of the loss with respect to the predicted class.  
+- The resulting **ODIN scores** reduce overconfidence on OOD samples, improving separation between ID and OOD data and often increasing AUROC.  
+- Can be applied to any pretrained classifier without modifying its architecture.
+
+---
+
 ## Datasets and Models
  - **Datasets:** CIFAR-10 (in-distribution), fake images or other datasets (out-of-distribution)  
 - **Models:**
