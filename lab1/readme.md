@@ -111,9 +111,9 @@ We can see clear signs of overfitting, so I tried to improve the model's perform
 <img width="3033" height="1593" alt="W B Chart 03_09_2025, 19_19_37" src="https://github.com/user-attachments/assets/9c1b8318-8cf6-43c6-b0bc-df4d8a1ea0b5" />
 
 ## Refernces
-  ### 1 Bagdanov, A. D., DLA course material (2025)
+   1. Bagdanov, A. D., DLA course material (2025)
 
-  ### 2 He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep Residual Learning for Image Recognition. IEEE Conference on Computer Vision and Pattern Recognition (CVPR). arXiv:1512.03385
+   2. He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep Residual Learning for Image Recognition. IEEE Conference on Computer Vision and Pattern Recognition (CVPR). arXiv:1512.03385
 
 
 
