@@ -116,7 +116,7 @@ This network is a **Residual CNN** customizable in terms of depth (`depth`) and 
 ### 3. Transfer Learning & Fine-tuning on CIFAR-100 (Exercise 2.1)
 - **Feature extractor + Linear SVM**: additional baseline using pre-trained embeddings.  
 - **Linear probe (LP)**: freeze backbone, train only final classifier.    
-- **Fine-tuning (FT0, FT1, FT2)**: progressively unfreeze layers.    
+- **Fine-tuning (FT0, FT1, FT2)**: progressively unfreeze layers (**blocks**).    
 ---
 
 ## Results
