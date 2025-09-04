@@ -40,9 +40,6 @@ They are the core idea behind ResNets, which achieve state-of-the-art performanc
   - Linear probe (frozen backbone).  
   - Fine-tuning.
 
-
-
-Residual connections (or skip connections) are links that bypass one or more layers by adding the input of a layer directly to its output. Formally, a residual block computes:
 ---
 
 ## Datasets
