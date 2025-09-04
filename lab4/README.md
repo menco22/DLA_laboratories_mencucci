@@ -13,26 +13,29 @@ This project explores adversarial attacks, adversarial training, and out-of-dist
   - ResNet20 pretrained + adversarially trained with FGSM data augmentation  
 
 ---
+## Exercise 1 – OOD Detection Pipeline
 
-## Exercise 1 – OOD Detection Pipeline (Baseline)
+A **pipeline for out-of-distribution (OOD) detection** was implemented. The goal is to assign a **score to each test sample** reflecting how likely it is to be OOD. The evaluation focuses on both **qualitative and quantitative assessment** of OOD scores to inspect the separation between in-distribution (ID) and out-of-distribution (OOD) data.
 
-### Implementation
-The goal is to separate in-distribution (ID) and out-of-distribution (OOD) samples using **softmax confidence scores**.  
-- For each input, compute the maximum softmax probability.  
-- Use this value as the OOD score: higher = more likely ID, lower = more likely OOD.  
-- Evaluate detection with ROC curve and AUROC metric.
+### Pipeline Description
 
-### Results
-- **CDF and histogram plots** show clear separation between ID and OOD scores for strong models.  
-- **AUROC scores:**
-  - Simple CNN: ~0.55 (slightly better than random)  
-  - ResNet20 pretrained: ~0.80  
-  - ResNet20 pretrained + FGSM aug: ~0.94  
+1. **Score functions**: Two scoring strategies are used to measure how confident the model is on a given input:  
+   - `max_logit`: takes the maximum logit value for each sample.  
+   - `max_softmax`: computes the softmax of logits (optionally scaled by temperature `T`) and takes the maximum probability.  
 
-### Key Takeaways
-- A naïve OOD detector based on confidence already works for sufficiently strong models.  
-- Weak models tend to be overconfident on OOD data, leading to poor separation.  
-- This exercise provides the baseline for evaluating improvements with ODIN later.
+2. **Score computation**:  
+   - Each score function is applied to all samples in the data loader using the `compute_scores` function.  
+   - This produces a **1D tensor of confidence scores** for each dataset (ID and OOD).  
+
+3. **Visualization**:  
+   - **Sorted score plots** show how the confidence values of ID and OOD data are distributed.  
+   - **Histograms** provide a density view, allowing visual comparison of the distributions between ID and OOD samples.  
+
+4. **Quantitative evaluation**:  
+   - Confidence scores are concatenated for ID and OOD samples to create labels (`1` for ID, `0` for OOD).  
+   - **ROC curves** are plotted to assess the model's performance numerically in distinguishing ID from OOD.  
+
+This approach provides both a **qualitative and quantitative assessment** of the OOD scoring method before moving on to more advanced techniques or metrics.
 
 ---
 
