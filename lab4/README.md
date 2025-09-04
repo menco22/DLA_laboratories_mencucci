@@ -134,7 +134,7 @@ $$
 - **Targeted attack:** minimizes loss with respect to a chosen target label.
 
 $$
-x_{\text{adv}} = x - \epsilon \cdot \text{sign}(\nabla_x L(\theta, x, y_{\text{target}}))
+\operatorname{softmax}\!\left(\frac{z_i}{T}\right) = \frac{e^{z_i/T}}{\sum_{j=1}^C e^{z_j/T}}
 $$
 
 ### Results
