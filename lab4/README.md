@@ -121,7 +121,8 @@ Below are the graphs obtained by applying the pipeline to the models
   <img src="https://github.com/user-attachments/assets/36216ed5-6a26-4880-b1e5-3302ab667c31" width="330" style="display:inline-block;">
 </div>
 
-
+#### Summary
+  The Autoencoder outperforms the CNN-based approaches, achieving strong separation and high ROC AUC. The Simple CNN fails to discriminate, while the Pre-trained CNN shows partial but weak separation.
 
 
 
