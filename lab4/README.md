@@ -42,8 +42,8 @@ Sorted score plots display confidence scores in ascending order.
 ### ROC Curve and AUROC
 The **Receiver Operating Characteristic (ROC) curve** plots the **true positive rate (TPR)** against the **false positive rate (FPR)** at various thresholds.  
 - **AUROC** (Area Under the ROC curve) summarizes the model’s discriminative ability:  
-  - 1.0 → perfect separation  
-  - 0.5 → random guessing  
+  - 1.0 -> perfect separation  
+  - 0.5 -> random guessing  
 - Higher AUROC indicates better OOD detection performance.
 
 ### ODIN Score
