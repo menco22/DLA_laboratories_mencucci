@@ -63,10 +63,17 @@ $$
   Budget \(\epsilon\) = 13/255
   <img width="416" height="435" alt="download" src="https://github.com/user-attachments/assets/48b9aab1-81bd-4299-9a01-c0b595266e9f" />
   <img width="416" height="435" alt="download" src="https://github.com/user-attachments/assets/f3d79525-369d-4ec2-875a-b1668bc987de" />
+  Distribution of changes applied to individual pixels:
   <img width="560" height="413" alt="download" src="https://github.com/user-attachments/assets/3a930553-577b-4fd2-ad08-e60fa9eb47f7" />
 
   - **Pre-Trained CNN**
+    Budget \(\epsilon\) = 4/255
+   <img width="416" height="435" alt="download" src="https://github.com/user-attachments/assets/1089d9ce-3625-4be2-b4c4-540ec049ab8a" />
+   <img width="416" height="435" alt="download" src="https://github.com/user-attachments/assets/29fa7311-df74-4ae8-a947-277832738826" />
+   Distribution of changes applied to individual pixels:
+<img width="552" height="413" alt="download" src="https://github.com/user-attachments/assets/9f7e8a89-1fd3-4056-80b8-4beb5b3ba10a" />
 
+We can observe that in the case of the pre-trained model, very few pixels underwent significant changes, with perturbations remaining between -0.016 and 0.016 (compared to the previous range of -0.05 and 0.05).Furthermore, the pre-trained model was successfully attacked with a much smaller perturbation—a fact already evident from the budget—compared to the inefficient model trained from scratch. This is likely because the pre-trained model has already learned to recognize the essential features of images, which paradoxically makes it more vulnerable. A more performant model doesn't require large pixel modifications to change its prediction.
 
  ## Untargeted  
   Model accuracy drops sharply with increasing \(\epsilon\):
