@@ -46,6 +46,16 @@ The **Receiver Operating Characteristic (ROC) curve** plots the **true positive 
   - 0.5 -> random guessing  
 - Higher AUROC indicates better OOD detection performance.
 
+### Adversarial Learning
+Deep learning models can be vulnerable to small, intentionally crafted perturbations of the input, known as adversarial examples, which cause incorrect predictions. A classical attack is the Fast Gradient Sign Method (FGSM), where the input is perturbed in the direction of the gradient of the loss:
+
+$$
+x_{adv} = x + \epsilon \cdot sign(\nabla_x L(\theta, x, y))
+$$
+
+where ε controls the strength of the perturbation.
+
+
 ### ODIN Score
 **ODIN** combines **temperature scaling** and **small input perturbations** to calibrate confidence scores.  
 - Forward pass logits are divided by temperature \(T\).  
