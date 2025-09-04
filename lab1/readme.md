@@ -7,7 +7,7 @@ This lab investigates the role of **residual connections** in mitigating vanishi
 ## Theoretical Background
 
 ### Multilayer Perceptron (MLP)
-An **MLP** is a feed-forward neural network with multiple hidden layers. Each layer applies linear transformations followed by nonlinear activations, allowing the network to approximate complex functions. MLPs are not well suited for data with strong spatial structure, like images.
+An **MLP** is a feed-forward neural network with multiple hidden layers. Each layer applies linear transformations followed by nonlinear activations, allowing the network to approximate complex functions.
 
 ### Convolutional Neural Network (CNN)
 **CNNs** are designed for grid-structured data such as images. Convolutional layers use shared filters to extract local patterns and build hierarchical feature representations. **Residual networks (ResNets)** introduce skip connections, easing optimization and enabling very deep architectures.
