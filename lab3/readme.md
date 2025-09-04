@@ -131,7 +131,8 @@ Full fine-tuning of DistilBERT is computationally expensive. In this exercise, e
 - Fine-tuning DistilBERT does not improve performance, but it makes it a little worse, probably more epochs are needed (~80% validation accuracy).  
 - LoRA with mixed precision achieves the **best results** (~84% validation accuracy, F1 ~0.84) with **far fewer trainable parameters (739k vs >66M)**.  
 - **LoRA proves to be an effective and efficient fine-tuning method, achieving competitive or superior results at a fraction of the cost.**  
-### Comparison of Results
+
+### Summary Table
 
 | Method                         | Validation Accuracy | Validation F1 |
 |--------------------------------|---------------------|---------------|
