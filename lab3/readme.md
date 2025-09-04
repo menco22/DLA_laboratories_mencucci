@@ -56,7 +56,7 @@ Each sample contains:
 ## Exercise 1: Stable Baseline  
 
 ### 1.1 - Dataset Splits  
-Exploration of splits and basic statistics.  
+Exploration of splits of the dataset  
 
 ### 1.2 - Pre-trained DistilBERT  
 Loading the model and tokenizer, verifying embeddings and the last_hidden_state.  
