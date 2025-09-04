@@ -35,7 +35,13 @@ A **pipeline for out-of-distribution (OOD) detection** was implemented. The goal
    - Confidence scores are concatenated for ID and OOD samples to create labels (`1` for ID, `0` for OOD).  
    - **ROC curves** are plotted to assess the model's performance numerically in distinguishing ID from OOD.  
 
-This approach provides both a **qualitative and quantitative assessment** of the OOD scoring method before moving on to more advanced techniques or metrics.
+### First Results
+ #### Simple CNN
+ <div>
+  <img width="543" height="413" alt="download" src="https://github.com/user-attachments/assets/b7640eae-c95f-4dca-a413-789d304a1251" />
+  <img width="567" height="432" alt="download" src="https://github.com/user-attachments/assets/3380993b-8b2b-4298-ad1e-bff838ca9f3c" />
+  <img width="448" height="434" alt="download" src="https://github.com/user-attachments/assets/7e525179-ef03-45ba-b9e8-bcd3092216d1" />
+ </div>
 
 ---
 
