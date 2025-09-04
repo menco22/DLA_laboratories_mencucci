@@ -261,4 +261,7 @@ Compute confidence scores using ODIN, scaling logits by T and applying a small i
 | ResNet20 + FGSM aug | 0.94 | ~0.999 |
 
 ---
+## References
+ ### 1 Bagdanov, A. D., DLA course material (2025)
+ ### 2 Seidenari, L., DLA course material (2025)
 
