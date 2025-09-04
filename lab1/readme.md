@@ -95,7 +95,7 @@ This network is a **Residual CNN** customizable in terms of depth (`depth`) and 
   total_blocks = (depth - 1) / 2
 
 
-## Training Pipeline
+## Training Setup
 - **Optimizer**: Adam (default),Adam/AdamW/Sgd/Sgd+momentum during Fine Tuning exercise.  
 - **Scheduler**: ReduceLROnPlateau (factor=0.5, patience=2).  
 - **Regularization**: early stopping (patience=5–6).  
