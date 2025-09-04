@@ -1,6 +1,6 @@
 # Adversarial Robustness and OOD Detection
 
-This project explores adversarial attacks, adversarial training, and out-of-distribution (OOD) detection techniques using CIFAR-10. The exercises are based on implementing Fast Gradient Sign Method (FGSM), Projected Gradient Descent (PGD, reference), adversarial training, and the ODIN method.
+This notebook explores Out-of-Distribution (OOD) detection and model robustness to adversarial attacks, using various confidence scores, including ODIN.
 
 ---
 
