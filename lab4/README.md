@@ -41,7 +41,7 @@ Below are the graphs obtained by applying the pipeline to the models
  <div>
   <img src="https://github.com/user-attachments/assets/b7640eae-c95f-4dca-a413-789d304a1251" width="330" style="display:inline-block; margin-right:5px;">
   <img src="https://github.com/user-attachments/assets/3380993b-8b2b-4298-ad1e-bff838ca9f3c" width="330" style="display:inline-block; margin-right:5px;">
-  <img src="https://github.com/user-attachments/assets/7e525179-ef03-45ba-b9e8-bcd3092216d1" width="330" style="display:inline-block;">
+  <img src="https://github.com/user-attachments/assets/18445a09-de62-4aa5-b872-8f0778934972" width="330" style="display:inline-block;">
 </div>
 
  #### Autoencoder
