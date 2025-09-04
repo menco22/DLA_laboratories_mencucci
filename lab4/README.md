@@ -41,13 +41,20 @@ The goal is to separate in-distribution (ID) and out-of-distribution (OOD) sampl
 ### Implementation
 FGSM perturbs inputs along the sign of the gradient of the loss:
 
-$$
+
+
+
+- **Untargeted attack:** maximizes loss with respect to true label:
+
+  $$
 x_{\text{adv}} = x + \epsilon \cdot \text{sign}(\nabla_x L(\theta, x, y))
 $$
 
+- **Targeted attack:** minimizes loss with respect to a chosen target label.
 
-- **Untargeted attack:** maximizes loss with respect to true label.  
-- **Targeted attack:** minimizes loss with respect to a chosen target label.  
+  $$
+x_{\text{adv}} = x - \epsilon \cdot \text{sign}(\nabla_x L(\theta, x, y_{\text{target}}))
+$$
 
 ### Results
 - **Qualitative:**  
