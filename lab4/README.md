@@ -258,8 +258,8 @@ Compute confidence scores using ODIN, scaling logits by T and applying a small i
 
 ---
 
-### Final Comparison
-
+### Final Compasraison
+The analysis shows that FGSM adversarial training makes ResNet20 highly robust for OOD detection with ODIN, achieving very high AUROC regardless of temperature or epsilon. The pretrained ResNet20 without adversarial training performs reasonably but is sensitive to epsilon: small perturbations improve detection, while larger ones degrade it. The simple CNN achieves lower AUROC, benefits from higher temperatures, but suffers from large epsilon values, highlighting its lower robustness.
 | Model | AUROC baseline (ϵ=0, T=1) | Max AUROC (ODIN) |
 |-------|---------------------------|------------------|
 | Simple CNN | 0.41 | 0.66 |
